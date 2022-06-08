@@ -28,11 +28,67 @@ sub Main()
   print "The initial string is "+x
 
   z=x.Split("")
-  'print z
+  
+  p=length-1
+
+  ascArray = []
+  for i=0 to p
+    o=z[i]
+    r=o.ToStr()
+    'print r
+    'print type(r)
+    'print Asc(r)
+    w=Asc(r)
+    'print w
+    ascArray.Push(w)
+  end for
+
+  'print "The initial ascArray is:"
+  'print ascArray
+
+  for i=0 to p
+    'print "i = " + i.ToStr()
+    e=p-i-1
+    for j=0 to e
+      q=ascArray[j]
+      'print "q = " + q.ToStr()
+      k=ascArray[j+1] 
+      'print "k = " + k.ToStr()
+      if q > k
+        'print q.ToStr() + ">" + k.ToStr()
+        'print "ascArray["+j.ToStr()+"] > ascArray["+(j+1).ToStr()+"]"
+        temp = ascArray[j]
+        'print "temp = " + temp.ToStr()
+        ascArray[j] = ascArray[j+1]
+        'print "ascArray["+j.ToStr()+"] = " + ascArray[j].ToStr()
+        ascArray[j+1] = temp
+        'print "ascArray["+(j+1).ToStr()+"] = " + ascArray[j+1].ToStr()
+      end if
+    end for
+  end for
+
+  sortedArray = ascArray
+
+  'print "The sorted ascArray is:"
+  'print sortedArray
+  
+  chrArray = []
+  for i=0 to p
+    h=sortedArray[i]
+    'print Chr(h)
+    l=Chr(h)
+    chrArray.Push(l)
+  end for
+
+  'print chrArray
+  g=chrArray.Join("")
+
   z.Sort()
   'print z
   t=z.Join("")
-  print "The sorted string is "+t
+   
+  print "The sorted string using bult-in function is "+t
+  print "The sorted string manually is "+g
   
 end sub
 
