@@ -17,22 +17,31 @@ sub Main()
   print "The length of string is "+y
   for i=1 to length 
     a=Rnd(1000) MOD 94
-    u=a.ToStr()
+    'u=a.ToStr()
     'print "a=" + u
-    c=s[a]
+    'c=s[a]
     'print c
-    m.stack.Push(c)
+    m.stack.Push(s[a])
   end for
   
-  x=m.stack.Join("")
-  print "The initial string is "+x
+  ' x=m.stack.Join("")
+  ' print "The initial string is "+x
 
-  z=x.Split("")
+  ' z=x.Split("")
   
+  a = 1 
+  b = a
+
+  [(])
+  [()]
+
+
+
+
   p=length-1
 
   ascArray = []
-  for i=0 to p
+  for i=0 to length-1
     o=z[i]
     r=o.ToStr()
     'print r
