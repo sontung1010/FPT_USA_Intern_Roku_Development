@@ -12,92 +12,38 @@ sub Main()
   m.stack=[]
   'print len(b)
 
-  length=Rnd(100)
+  length=Rnd(50)
   y=length.ToStr()
   print "The length of string is "+y
   for i=1 to length 
     a=Rnd(1000) MOD 94
-    'u=a.ToStr()
-    'print "a=" + u
-    'c=s[a]
-    'print c
     m.stack.Push(s[a])
   end for
   
-  ' x=m.stack.Join("")
-  ' print "The initial string is "+x
 
-  ' z=x.Split("")
-  
-  a = 1 
-  b = a
-
-  [(])
-  [()]
-
-
+  print "The initial string is " + m.stack.Join("")
 
 
   p=length-1
 
-  ascArray = []
-  for i=0 to length-1
-    o=z[i]
-    r=o.ToStr()
-    'print r
-    'print type(r)
-    'print Asc(r)
-    w=Asc(r)
-    'print w
-    ascArray.Push(w)
-  end for
-
-  'print "The initial ascArray is:"
-  'print ascArray
 
   for i=0 to p
-    'print "i = " + i.ToStr()
     e=p-i-1
     for j=0 to e
-      q=ascArray[j]
-      'print "q = " + q.ToStr()
-      k=ascArray[j+1] 
-      'print "k = " + k.ToStr()
+      q=m.stack[j]
+      k=m.stack[j+1] 
       if q > k
-        'print q.ToStr() + ">" + k.ToStr()
-        'print "ascArray["+j.ToStr()+"] > ascArray["+(j+1).ToStr()+"]"
-        temp = ascArray[j]
-        'print "temp = " + temp.ToStr()
-        ascArray[j] = ascArray[j+1]
-        'print "ascArray["+j.ToStr()+"] = " + ascArray[j].ToStr()
-        ascArray[j+1] = temp
-        'print "ascArray["+(j+1).ToStr()+"] = " + ascArray[j+1].ToStr()
+        temp = m.stack[j]
+        m.stack[j] = m.stack[j+1]
+        m.stack[j+1] = temp
       end if
     end for
   end for
 
-  sortedArray = ascArray
+  sortedArray = m.stack.Join("")
 
-  'print "The sorted ascArray is:"
-  'print sortedArray
+  print "The sorted string is " + sortedArray
   
-  chrArray = []
-  for i=0 to p
-    h=sortedArray[i]
-    'print Chr(h)
-    l=Chr(h)
-    chrArray.Push(l)
-  end for
-
-  'print chrArray
-  g=chrArray.Join("")
-
-  z.Sort()
-  'print z
-  t=z.Join("")
-   
-  print "The sorted string using bult-in function is "+t
-  print "The sorted string manually is "+g
   
 end sub
 
