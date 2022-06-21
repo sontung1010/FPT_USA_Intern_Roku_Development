@@ -10,8 +10,6 @@ sub Main()
   b="!#$%&\()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~"
   s=b.Split("")
   m.stack=[]
-  'print len(b)
-
   length=Rnd(50)
   y=length.ToStr()
   print "The length of string is "+y
@@ -20,13 +18,9 @@ sub Main()
     m.stack.Push(s[a])
   end for
   
-
   print "The initial string is " + m.stack.Join("")
 
-
   p=length-1
-
-
   for i=0 to p
     e=p-i-1
     for j=0 to e
@@ -43,7 +37,6 @@ sub Main()
   sortedArray = m.stack.Join("")
 
   print "The sorted string is " + sortedArray
-  
-  
+    
 end sub
 
