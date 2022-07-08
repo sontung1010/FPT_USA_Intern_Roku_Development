@@ -9,13 +9,18 @@
   <children >
 
     <Button
-      id = "exampleButton"
-      text = "Play"
+      id = "Button1"
+      text = "Button 1"
       showFocusFootprint = "true"
       minWidth = "100" 
       />
 
-
+    <Button
+      id = "Button2"
+      text = "Button 2"
+      showFocusFootprint = "true"
+      minWidth = "100" 
+      />
 
   </children>
 
