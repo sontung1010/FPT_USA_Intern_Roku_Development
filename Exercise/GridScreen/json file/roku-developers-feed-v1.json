@@ -1,0 +1,46 @@
+{
+	"providerName": "Roku Developers",
+	"language": "en-us",
+	"rating": {
+		"rating": "G",
+		"ratingSource": "USA_PR"
+	},
+	"lastUpdated": "2021-10-26T02:01:00+02:00",
+	"shortFormVideos": [{
+			"longDescription": "The Roku content team recaps the past year in streaming and highlights key industry trends for the upcoming year.",
+			"thumbnail": "https://image.roku.com/ZHZscHItMTc2/dev-summit-21-welcome.png",
+			"releaseDate": "2021-10-26",
+			"genres": [
+				"educational"
+			],
+			"tags": [
+				"dev-summit-21"
+			],
+			"id": "dev-summit-21-keynote-welcome-address",
+			"shortDescription": "The Roku content team recaps the past year in streaming and highlights key industry trends for the upcoming year.",
+			"title": "Keynote - Welcome address",
+			"content": {
+				"duration": 699,
+				"videos": [{
+					"videoType": "MP4",
+					"url": "https://image.roku.com/ZHZscHItMTc2/2-keynote-address.mp4",
+					"quality": "HD"
+				}],
+				"language": "en-us",
+				"rating": {
+					"rating": "G",
+					"ratingSource": "USA_PR"
+				},
+				"dateAdded": "2021-10-26T00:00:00Z"
+			}
+        }],
+	"playlists": [{
+		"name": "rsg_category_row",
+		"itemIds": ["rsg_unit1_intro", "rsg-unit2-developerSetup", "video3-scenegraph-overview", "rsg - unit4 - contentFeed", "video5-grid-screen-1", "video5-grid-screen-2", "video6-video-player", "video7-debugger", "video8-detailsScreen-part1", "video8-detailsScreen-part2", "video9-episodesScreen-part1", "video9-episodesScreen-part2", "video10-videoAds-part1", "video10-videoAds-part2", "video11-subscriptions-part1", "video11-subscriptions-part2", "video12-deep-linking-part1", "video12-deep-linking-part1", "video12-deep-linking-part2", "video12-deep-linking-part3", "video12-deep-linking-part4", "video12-deep-linking-part5", "video13-certification-testing-part1", "video13-certification-testing-part2"]
+	}],
+	"categories": [{
+		"name": "Roku SceneGraph Developers",
+		"playlistName": "rsg_category_row",
+		"order": "manual"
+	}]
+}

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<component name="GridScreen" extends="Group" intialFocus="RowList">
+<component name="GridScreen" extends="Group"  initialFocus="RowList">
     <script type="text/brightscript" uri="GridScreen.brs" />
     <interface>
         <!-- Specifies the content for the Grid -->

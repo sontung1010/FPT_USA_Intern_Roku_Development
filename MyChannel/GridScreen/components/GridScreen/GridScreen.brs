@@ -1,6 +1,6 @@
 ' entry point of GridScreen
 sub Init()
-    m.rowList = m.top.FindNode(rowList)
+    m.rowList = m.top.FindNode("rowList")
     m.rowList.SetFocus(true)
     ' label with item description
     m.descriptionLabel = m.top.FindNode("descriptionLabel")
@@ -28,7 +28,7 @@ end sub
 ' getTime(138) return 2:18
 function GetTime(length as Integer) as String
     minutes = (length\60).ToStr()
-    seconds - length MOD 60
+    seconds = length MOD 60
     if seconds < 10 
         seconds = "0" + seconds.ToStr()
     else 

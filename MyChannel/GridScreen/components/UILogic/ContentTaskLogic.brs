@@ -1,4 +1,4 @@
-sub ContentTask()
+sub RunContentTask()
     m.contentTask = createObject("roSGNode", "MainLoaderTask") ' create task for feed retrieving
     ' observe content so we can know when feed content will be parsed
     m.contentTask.ObserveField("content", "OnMainContentLoaded")

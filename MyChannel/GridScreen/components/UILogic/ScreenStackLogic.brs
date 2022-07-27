@@ -10,7 +10,7 @@ sub ShowScreen(node as Object)
     ' show new screen
     m.top.AppendChild(node)
     node.visible = true
-    node,SetFocus(true)
+    node.SetFocus(true)
     m.screenStack.Push(node) ' add new screen to the screen stack
 end sub
 
