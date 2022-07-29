@@ -1,17 +1,14 @@
-' ********** Copyright 2020 Roku Corp.  All Rights Reserved. **********
-
-' Note that we need to import this file in MainLoaderTask.xml using relative path.
 sub Init()
-    ' set the name of the function in the Task node component to be executed when the state field changes to RUN
+    ' set the name of the function in the Task node component to be executed when the state field changes to Run
     ' in our case this method executed after the following cmd: m.contentTask.control = "run"(see Init method in MainScene)
     m.top.functionName = "GetContent"
 end sub
 
 sub GetContent()
-    ' request the content feed from the API
+    'request the content feed from the API
     xfer = CreateObject("roURLTransfer")
     xfer.SetCertificatesFile("common:/certs/ca-bundle.crt")
-    xfer.SetURL("https://jonathanbduval.com/roku/feeds/.json")
+    xfer.SetURL("https://jonathanbduval.com/roku/feeds/roku-developers-feed-v1.json")
     rsp = xfer.GetToString()
     rootChildren = []
     rows = {}
@@ -34,6 +31,7 @@ sub GetContent()
                 end if
             end if
         end for
+
         ' set up a root ContentNode to represent rowList on the GridScreen
         contentNode = CreateObject("roSGNode", "ContentNode")
         contentNode.Update({
@@ -53,7 +51,7 @@ function GetItemData(video as Object) as Object
         item.description = video.longDescription
     else
         item.description = video.shortDescription
-    end if
+    end if 
     item.hdPosterURL = video.thumbnail
     item.title = video.title
     item.releaseDate = video.releaseDate
