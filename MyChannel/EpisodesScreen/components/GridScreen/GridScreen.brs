@@ -27,7 +27,7 @@ sub OnItemFocused() ' invoked when another item is focused
     ' update title label with title of focused item
     m.titleLabel.text = item.title
     ' adding length of playback to the title if item length was populated
-    if item.length <> invalid
+    if item.length <> invalid and item.length <> 0
         m.titleLabel.text += " | " + GetTime(item.length)
     end if
 end sub
