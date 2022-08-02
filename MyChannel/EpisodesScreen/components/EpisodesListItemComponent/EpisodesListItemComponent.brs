@@ -1,3 +1,5 @@
+' Copyright (c) 2020 Roku, Inc. All rights reserved.
+
 ' entry point of EpisodesListItemComponent
 sub Init()
     ' store components to m for populating them with metadata
@@ -19,7 +21,7 @@ sub itemContentChanged() ' invoked when episode data is retrieved
         m.title.text = itemContent.title
         divider = " | "
         episode = "E" + itemContent.episodePosition
-        item = GetTime(itemContent.length)
+        time = GetTime(itemContent.length)
         date = itemContent.releaseDate
         season = itemContent.titleSeason
         m.info.text = episode + divider + date + divider + time + divider + season

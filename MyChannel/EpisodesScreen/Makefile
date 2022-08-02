@@ -1,4 +1,4 @@
-APPNAME = phase3_rsg
+APPNAME = phase4_rsg
 ZIP_EXCLUDE= -x keys\* -x store_assets\*
 APPSROOT = ../..
 
