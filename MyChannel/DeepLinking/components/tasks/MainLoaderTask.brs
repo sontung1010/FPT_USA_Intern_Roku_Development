@@ -80,7 +80,7 @@ function GetItemData(video as Object) as Object
     return item
 end function
 
-function GetSeasonData(seasons as Object) as Object
+function GetSeasonData(seasons as Object, homeRowIndex as Integer, homeItemIndex as Integer, seriesId as String) as Object
     seasonsArray = []
     if seasons <> invalid
         episodeCounter = 0
@@ -93,6 +93,9 @@ function GetSeasonData(seasons as Object) as Object
                     episodeData.titleSeason = season.title
                     episodeData.numEpisodes = episodeCounter
                     episodeData.mediaType = "episode"
+                    episodeData.homeRowIndex = homeRowIndex
+                    episodeData.homeItemIndex = homeItemIndex
+                    episodeData.seriesId = seriesId
                     episodes.Push(episodeData)
                     episodeCounter ++
                 end for

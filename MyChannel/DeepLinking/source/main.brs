@@ -26,7 +26,7 @@ sub ShowChannelRSGScreen(args as Object)
         ? "msgType=" msgType
         if msgType = "roSGScreenEvent"
             if msg.IsScreenClosed() then return
-        else if msgType "roInputEvent"
+        else if msgType = "roInputEvent"
             inputData = msg.getInfo()
             ? "input"
             ' pass the deeplink to UI

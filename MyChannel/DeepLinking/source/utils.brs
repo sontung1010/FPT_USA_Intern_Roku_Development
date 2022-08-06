@@ -38,3 +38,43 @@ function CloneChildren(node as Object, startItem = 0 as Integer)
     end for
     return childrenClone
 end function
+
+' Helper function finds child node by specified contentId
+function FindNodeById(content as Object, contentId as String) as Object
+    for each element in content.GetChildren(-1, 0)
+        if element.id = contentId
+            return element
+        else if element.getChildCount() > 0
+            result = FindNodeById(element, contentId)
+            if result <> invalid
+                return result
+            end if
+        end if
+    end for
+    return invalid
+end function
+
+' Reads and returns the value of the specified key
+function RegRead(key as String, section = invalid As Dynamic) As Dynamic
+    If section = invalid Then section = "Default"
+    reg = CreateObject("roRegistrySection", section)
+    If reg.Exists(key) Then return reg.Read(key)
+    return invalid
+end function
+
+' Replaces the value of the specified key
+sub RegWrite(key as String, val as String, section = invalid As Dynamic)
+    If section = invalid Then section = "Default"
+    reg = CreateObject("roRegistrySection", section)
+    reg.Write(key, val)
+    reg.Flush()
+end sub
+
+' Deletes the specified key
+sub RegDelete(key as String, section = invalid As Dynamic)
+    If section = invalid Then section = "Default"
+    reg = CreateObject("roRegistrySection", section)
+    reg.Delete(key)
+    reg.Flush()
+end sub
+

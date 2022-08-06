@@ -85,5 +85,6 @@ sub HandlePlayButton(content as Object, selectedItem as Integer, isResume = fals
     end if
     if m.selectedIndex = invalid
         m.selectedIndex = [0, 0]
+    end if
     m.selectedIndex[1] = selectedItem ' store index of selected item
 end sub

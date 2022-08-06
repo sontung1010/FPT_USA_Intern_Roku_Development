@@ -61,14 +61,14 @@ sub SetDetailsContent(content as Object)
         if episodeId <> invalid and episodeId <> ""
             episode = FindNodeById(content, episodeId)
             if episode <> invalid
-                episode.bookmarkPosition = MasterChannelSmartBookmarks().GetBookmarkForVideo(episode)
+                episode.bookmarkPosition = MasterChannelBookmarks().GetBookmarkForVideo(episode)
                 buttonList.Push("Continue")
             end if
         end if
-        buttonListPush("See all episodes")
+        buttonList.Push("See all episodes")
     else
         ' set playback start position using bookmarks
-        content.bookmarkPosition = MasterChannelSmartBookmarks().GetBookmarkForVideo(content)
+        content.bookmarkPosition = MasterChannelBookmarks().GetBookmarkForVideo(content)
         ' Add Continue button if user started this content, but didn't finish it
         if content.bookmarkPosition > 0
             buttonList.Push("Continue")

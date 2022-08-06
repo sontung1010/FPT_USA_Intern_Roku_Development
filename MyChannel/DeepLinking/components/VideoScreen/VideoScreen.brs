@@ -7,7 +7,28 @@ function Init()
     ' store refence for playerTask so we can use it in other functions
     m.playerTask = m.top.FindNode("PlayerTask")
     m.playerTask.ObserveField("state", "OnPlayerTaskStateChange") ' close screen once exited
+    m.top.ObserveField("visible", "OnVisibleChanged")
 end function
+
+sub OnVisibleChanged(event as Object) ' invoked when VideoScreen visibility is changed
+    visible = event.GetData()
+    ' Video node content must be invalidated if videoScreen is closed but playerTask is still running
+    if visible = false and m.playerTask <> invalid
+        m.playerTask.UnobserveField("state")
+        m.playerTask.control = "STOP"
+        ' Get video node wrapper created by RAF
+        RAFRenderer = m.top.GetChild(m.top.GetChildCount() -1)
+        if RAFRenderer <> invalid
+            ' Get video node
+            video = RAFRenderer.getChild(0)
+            if video <> invalid and LCase(video.id) = "contentvideo"
+                video.content = invalid ' Resetting RAF video node content to kill it
+                RAFRenderer = invalid
+            end if
+        end if
+        m.playerTask = invalid
+    end if
+end sub
 
 sub OnIndexChanged(event as Object) ' invoked when "startIndex" field is changed
     content = m.top.content
@@ -17,6 +38,7 @@ sub OnIndexChanged(event as Object) ' invoked when "startIndex" field is changed
         ' set playlist data and start task
         m.playerTask.content = content
         m.playerTask.startIndex = index
+        m.playerTask.isSeries = m.top.isSeries
         m.playerTask.control = "RUN"
     end if
 end sub
@@ -24,7 +46,8 @@ end sub
 ' close videoScreen once playerTask finished or stopped
 sub OnPlayerTaskStateChange(event as Object)
     state = event.GetData()
-    if state = "done" or state = "stop"
+    if (state = "done" or state = "stop") and m.playerTask <> invalid
+        m.playerTask = invalid
         m.top.close = true
     end if
 end sub
